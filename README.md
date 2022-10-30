@@ -1,3 +1,9 @@
+# Fork of SolisMon3
+
+- Adds Exception with traceback
+- Removes main configuration to environment variables for easy container deployments
+- Buildings multi arch images
+
 # SolisMon3
 
 This is 3rd iteration of my Solis Inverter monitor. 
@@ -64,7 +70,7 @@ docker run -it -d --restart unless-stopped --name solismon3 \
 -e MQTT_SERVER=192.168.1.3 \
 -e INVERTER_IP=192.168.1.5 \
 -e INVERTER_SERIAL=12345678901 \
--p 18000:18000 nosireland/solismon3
+-p 18000:18000 gsdevme/solismon3
 ```
 
 ### Docker Compose example
@@ -73,7 +79,7 @@ version: "3.4"
 
 services:
   solismon3:
-    image: nosireland/solismon3:latest
+    image: gsdevme/solismon3:latest
     container_name: solismon3
     restart: always
     ports:
