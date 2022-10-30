@@ -1,4 +1,5 @@
-umodbus
-paho-mqtt
-prometheus-client
-pysolarmanV5
+environs==9.5.0
+paho-mqtt==1.6.1
+prometheus-client==0.15.0
+pysolarmanv5==2.4.0
+uModbus==1.0.4
