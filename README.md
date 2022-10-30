@@ -60,7 +60,11 @@ Run main.py
 Docker images is provided.   
 On your docker host create a folder solismon3/config and copy your modified config.py and registers.py files in there
 ```
-docker run -it -d --restart unless-stopped --name solismon3 -v /solismon3/config:/solismon3/config -p 18000:18000 nosireland/solismon3
+docker run -it -d --restart unless-stopped --name solismon3 \
+-e MQTT_SERVER=192.168.1.3 \
+-e INVERTER_IP=192.168.1.5 \
+-e INVERTER_SERIAL=12345678901 \
+-p 18000:18000 nosireland/solismon3
 ```
 
 ### Docker Compose example
@@ -74,8 +78,10 @@ services:
     restart: always
     ports:
       - 18000:18000
-    volumes:
-      - /solismon3/config:/solismon3/config
+    environment:
+      MQTT_SERVER=192.168.1.3
+      INVERTER_IP=192.168.1.5
+      INVERTER_SERIAL=12345678901 
     logging:
       options:
         max-size: 5m
